@@ -48,6 +48,7 @@ export const enum CoinFeature {
   CHILD_PAYS_FOR_PARENT = 'cpfp',
   WRAPPED_SEGWIT = 'wrapped-segwit',
   NATIVE_SEGWIT = 'native-segwit',
+  HAS_TOKENS = 'has-tokens',
 }
 
 /**
