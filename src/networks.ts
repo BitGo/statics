@@ -40,16 +40,20 @@ class Kovan extends Testnet implements AccountNetwork {
   family = Ethereum.prototype.family;
 }
 
+const BTC_FAMILY_MAINNET_BIP32_PUBLIC = 0x0488b21e;
+const BTC_FAMILY_MAINNET_BIP32_PRIVATE = 0x0488ade4;
+const BTC_FAMILY_WIF = 0x80;
+
 class Bitcoin extends Mainnet implements UtxoNetwork {
   messagePrefix = '\x18Bitcoin Signed Message:\n';
   bech32 = 'bc';
   bip32 = {
-    public: 0x0488b21e,
-    private: 0x0488ade4,
+    public: BTC_FAMILY_MAINNET_BIP32_PUBLIC,
+    private: BTC_FAMILY_MAINNET_BIP32_PRIVATE,
   };
   pubKeyHash = 0x00;
   scriptHash = 0x05;
-  wif = 0x80;
+  wif = BTC_FAMILY_WIF;
   family = CoinFamily.BTC;
 }
 
@@ -72,12 +76,12 @@ class BitcoinGold extends Mainnet implements UtxoNetwork {
   messagePrefix = '\x18Bitcoin Gold Signed Message:\n';
   bech32 = 'btg';
   bip32 = {
-    public: 0x0488b21e,
-    private: 0x0488ade4,
+    public: BTC_FAMILY_MAINNET_BIP32_PUBLIC,
+    private: BTC_FAMILY_MAINNET_BIP32_PRIVATE,
   };
   pubKeyHash = 0x26;
   scriptHash = 0x17;
-  wif = 0x80;
+  wif = BTC_FAMILY_WIF;
   family = CoinFamily.BTG;
 }
 
@@ -86,8 +90,8 @@ class Litecoin extends Mainnet implements UtxoNetwork {
   bech32 = 'ltc';
   // clarify these constants - they are different between BitGoJS and bitgo-utxo-lib
   bip32 = {
-    public: 0x0488b21e,
-    private: 0x0488ade4,
+    public: BTC_FAMILY_MAINNET_BIP32_PUBLIC,
+    private: BTC_FAMILY_MAINNET_BIP32_PRIVATE,
   };
   pubKeyHash = 0x30;
   scriptHash = 0x32;
@@ -99,8 +103,8 @@ class LitecoinTestnet extends Testnet implements UtxoNetwork {
   bech32 = 'tltc';
   // clarify these constants - they are different between BitGoJS and bitgo-utxo-lib
   bip32 = {
-    public: 0x0488b21e,
-    private: 0x0488ade4,
+    public: BTC_FAMILY_MAINNET_BIP32_PUBLIC,
+    private: BTC_FAMILY_MAINNET_BIP32_PRIVATE,
   };
   pubKeyHash = 0x6f;
   scriptHash = 0x3a;
