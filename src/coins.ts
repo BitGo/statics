@@ -2,7 +2,7 @@ import { account, AccountCoin, erc20, terc20 } from './account';
 import { CoinFeature, CoinKind, UnderlyingAsset } from './base';
 import { CoinMap } from './map';
 import { Networks } from './networks';
-import { ofc, tofc } from './ofc';
+import { ofc, tofc, OfcCoin } from './ofc';
 import { utxo } from './utxo';
 
 const ETH_FEATURES = [...AccountCoin.DEFAULT_FEATURES, CoinFeature.SUPPORTS_TOKENS];
@@ -19,6 +19,8 @@ export const coins = CoinMap.fromCoins([
   utxo('tltc', 'Testnet Litecoin', Networks.test.litecoin, UnderlyingAsset.LTC),
   utxo('dash', 'Dash', Networks.main.dash, UnderlyingAsset.DASH),
   utxo('tdash', 'Testnet Dash', Networks.test.dash, UnderlyingAsset.DASH),
+  utxo('zec', 'ZCash', Networks.main.zCash, UnderlyingAsset.ZEC),
+  utxo('tzec', 'Testnet ZCash', Networks.test.zCash, UnderlyingAsset.ZEC),
   account('algo', 'Algorand', Networks.main.algorand, 7, UnderlyingAsset.ALGO),
   account('talgo', 'Testnet Algorand', Networks.test.algorand, 7, UnderlyingAsset.ALGO),
   account('eth', 'Ethereum', Networks.main.ethereum, 18, UnderlyingAsset.ETH, ETH_FEATURES),
@@ -29,8 +31,7 @@ export const coins = CoinMap.fromCoins([
   account('txlm', 'Testnet Stellar', Networks.test.stellar, 7, UnderlyingAsset.XLM),
   account('susd', 'Silvergate USD', Networks.main.susd, 2, UnderlyingAsset.USD),
   account('tsusd', 'Testnet Silvergate USD', Networks.test.susd, 2, UnderlyingAsset.USD),
-  utxo('zec', 'ZCash', Networks.main.zCash, UnderlyingAsset.ZEC),
-  utxo('tzec', 'Testnet ZCash', Networks.test.zCash, UnderlyingAsset.ZEC),
+  account('ofc', 'Offchain', Networks.test.ofc, 2, UnderlyingAsset.USD, OfcCoin.DEFAULT_FEATURES, '$', CoinKind.FIAT),
   ofc('ofcusd', 'Offchain USD', 2, UnderlyingAsset.USD, CoinKind.FIAT),
   ofc('ofcbtc', 'Offchain Bitcoin', 8, UnderlyingAsset.BTC, CoinKind.CRYPTO),
   ofc('ofceth', 'Offchain Ether', 18, UnderlyingAsset.ETH, CoinKind.CRYPTO),
